@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  margin: auto;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -49,21 +51,22 @@ ol {
 }
 
 .result__video {
-  width: inherit;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content {
   display: flex;
+  margin: auto;
   width: 1140px;
-  height: 534px;
-  margin-top: 133px;
-  margin-left: 30px;
 }
 
 /*карточки с контентом*/
 
 .content__list {
-  width: 399px;
+  min-width: 399px;
   height: 298px;
   overflow: auto;
   position: relative;
@@ -80,7 +83,6 @@ ol {
 
 .content__list-item {
   min-width: 394px;
-  min-height: 107px;
 }
 
 .content__list-item:not(:last-child) {
@@ -95,6 +97,8 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
  
 .content__video-card-description-container {
@@ -109,15 +113,21 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  width: 200px;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
+  text-transform: uppercase;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed;
+  width: 200px;
+  font-family: Fira Sans Condensed, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -125,33 +135,32 @@ ol {
   margin-top: 6px;
 }
 
-.content__list-item:hover {
+.content__card-link:hover {
   text-decoration: underline;
 }
 
-.content__list-item:active {
-  background: #545050;
+.content__card-link:active {
+  background-color: #545050;
 }
 
-.content__list-item:focus {
+.content__card-link:focus {
   outline: 0;
 }
 
-.content__list-item:focus-visible {
+.content__card-link:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
 
 .title {
   width: 260px;
-  height: 210px;
   font-family: Oswald;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
   text-align: left;
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 /*начало стилей для параметров поиска*/
@@ -174,18 +183,17 @@ ol {
   display: flex;
   justify-content: space-between;
   width: 711px;
-  height: 54px;
 }
 
 .search-form__label {
   display: flex;
+  align-items: center;
   width: fit-content;
   cursor: pointer;
 }
 
-.search-form__label:hover {
+.search-form__label-text:hover {
   text-decoration: underline 1px #FFF;
-  text-underline-offset: 5px;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -205,6 +213,7 @@ ol {
 .search-form__textfield {
   min-width: 225px;
   min-height: 27px;
+  color:#FFF;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: 0;
@@ -261,7 +270,7 @@ ol {
   text-align: center;
   color:#fff;
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   align-self: end;
   cursor: pointer;
 }
